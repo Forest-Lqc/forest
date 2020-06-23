@@ -1,0 +1,38 @@
+// 本地创建文件夹
+mkdir test
+cd test
+// 配置本地的仓库
+git config --global user.name "Forest-Lqc"
+git config --global user.email "lqcd-99@qq.com"
+// 初始化本地仓库(注：执行完此条指令之后会在工程的根目录生成一个隐藏的.git文件)
+git init
+// 将本地仓库和远程仓库进行关联
+git remote add origin https://XX(上一步骤生成的远程地址)
+// 将本地代码加入暂存区
+git add .
+// 将本地代码加入本地仓库(此条指令执行完之后仅仅是将代码提交到了本地。还没有提交到远程仓库，所以完成仓库还是看不到的)
+git commit -m "first commit"
+// 将本地分支push到远程仓库
+git push
+// 可能会出现如下错误：
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+继续执行提示的代码：
+git push --set-upstream origin master
+
+over --> 此时到远程仓库就应该可以看到本地提交的代码了
+
+
+另外: 我们提交代码，有时有编译时生成的修改项并不想提交，因为每次编译都会生成不一样的东西，我们可以进行过滤，步骤如下：
+1. 在工程根目录下新建 .gitignore文件
+vim .gitignore
+2. 在生成的.gitignore文件中输入你不想上传的文件
+*.iml
+.gradle
+/local.properties
+/.idea/workspace.xml
+/build
+
+over -->设置完之后，下次上传之后这些目录的修改就不在版本控制范围之内了

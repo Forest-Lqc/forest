@@ -1,3 +1,0 @@
-// 创建git仓库
-git config --global user.name "Forest-Lqc"
-git config --global user.email "lqcd-99@qq.com"
